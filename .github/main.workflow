@@ -1,18 +1,15 @@
 workflow "Every 8 AM" {
-  on = "schedule(*/3 * * * *)"
+  on = "push"
   resolves = [
-    "Take screenshot and send email",
+    "Install node packages",
   ]
 }
 
 action "Install node packages" {
-  uses = "gh-actions/npm@master"
-  args = "install"
+  uses = "./"
+  env = {
+    GMAIL_ID = "ysm0622@gmail.com"
+  }
+  secrets = ["GMAIL_PW"]
 }
 
-action "Take screenshot and send email" {
-  uses = "gh-actions/npm@master"
-  needs = ["Install node packages"]
-  args = "run send"
-  secrets = ["GMAIL_PW", "GMAIL_ID"]
-}

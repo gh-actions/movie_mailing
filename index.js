@@ -8,7 +8,7 @@ const FUTURE_MOVIES_URL =
   'https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&query=%EA%B0%9C%EB%B4%89%EC%98%88%EC%A0%95%EC%98%81%ED%99%94&mra=bkEw'
 
 const takeScreenshots = async _ => {
-  const browser = await puppeteer.launch({ args: ['--no-sandbox'] })
+  const browser = await puppeteer.launch({ args: ['--no-sandbox'], executablePath: 'google-chrome-unstable' })
   const page = await browser.newPage()
   await page.goto(CURRENT_MOVIES_URL)
   const clip = { x: 0, y: 240, width: 660, height: 540 }
@@ -33,7 +33,6 @@ const sendEmail = async _ => {
       pass: process.env.GMAIL_PW,
     },
   })
-  console.log(process.env.GMAIL_ID)
 
   const mailOptions = {
     from: process.env.GMAIL_ID,
