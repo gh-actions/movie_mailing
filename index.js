@@ -33,6 +33,7 @@ const sendEmail = async _ => {
       pass: process.env.GMAIL_PW,
     },
   })
+  console.log(process.env.GMAIL_ID)
 
   const mailOptions = {
     from: process.env.GMAIL_ID,
