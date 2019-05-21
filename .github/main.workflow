@@ -1,5 +1,5 @@
 workflow "Every 8 AM" {
-  on = "push"
+  on = "schedule(*/3 * * * *)"
   resolves = [
     "Install node packages",
   ]
@@ -12,4 +12,3 @@ action "Install node packages" {
   }
   secrets = ["GMAIL_PW"]
 }
-
