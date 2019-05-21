@@ -34,9 +34,11 @@ const sendEmail = async _ => {
     },
   })
 
+  const to = [process.env.GMAIL_ID]
+
   const mailOptions = {
-    from: process.env.GMAIL_ID,
-    to: process.env.GMAIL_ID,
+    from: 'MOVIE_INFO_MAILING@gmail.com',
+    to,
     subject: '현재상영영화 & 개봉예정영화',
     html: '<img src="cid:file1"/><br><img src="cid:file2"/>',
     attachments: [

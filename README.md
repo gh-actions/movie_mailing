@@ -1,1 +1,1 @@
-movie-mailing
+# Send Korea Movie info email via Scheduled Github Actions
