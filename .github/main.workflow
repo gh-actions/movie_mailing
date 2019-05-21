@@ -7,7 +7,6 @@ workflow "Every 8 AM" {
 
 action "Install node packages" {
   uses = "gh-actions/npm@master"
-  needs = ["Install packages for puppeteer"]
   args = "install"
 }
 
