@@ -1,11 +1,11 @@
 workflow "Every 8 AM" {
-  on = "schedule(*/3 * * * *)"
+  on = "schedule(0 23 * * *)"
   resolves = [
-    "Install node packages",
+    "Take screenshots & Send Email",
   ]
 }
 
-action "Install node packages" {
+action "Take screenshots & Send Email" {
   uses = "./"
   env = {
     GMAIL_ID = "ysm0622@gmail.com"
