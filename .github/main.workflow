@@ -14,5 +14,5 @@ action "Take screenshot and send email" {
   uses = "gh-actions/npm@master"
   needs = ["Install node packages"]
   args = "run send"
-  secrets = ["GMAIL_PW", "GMAIL_ID"]
+  secrets = ["GMAIL_ID", "GMAIL_PW"]
 }
