@@ -1,5 +1,5 @@
 workflow "Every 8 AM" {
-  on = "schedule(*/4 * * * *)"
+  on = "schedule(*/3 * * * *)"
   resolves = ["Send email"]
 }
 
