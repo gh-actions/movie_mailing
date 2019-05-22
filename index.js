@@ -6,6 +6,7 @@ const CURRENT_MOVIES_URL =
   'https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&query=%ED%98%84%EC%9E%AC%EC%83%81%EC%98%81%EC%98%81%ED%99%94&mra=bkEw'
 const FUTURE_MOVIES_URL =
   'https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&query=%EA%B0%9C%EB%B4%89%EC%98%88%EC%A0%95%EC%98%81%ED%99%94&mra=bkEw'
+const now = Date.now()
 
 const takeScreenshots = async _ => {
   const browser = await puppeteer.launch({ args: ['--no-sandbox'], executablePath: 'google-chrome-unstable' })
@@ -13,12 +14,12 @@ const takeScreenshots = async _ => {
   await page.goto(CURRENT_MOVIES_URL)
   const clip = { x: 0, y: 240, width: 660, height: 540 }
   await page.screenshot({
-    path: 'now.png',
+    path: `now-${now}.png`,
     clip,
   })
   await page.goto(FUTURE_MOVIES_URL)
   await page.screenshot({
-    path: 'future.png',
+    path: `future-${now}.png`,
     clip,
   })
 
@@ -37,20 +38,20 @@ const sendEmail = async _ => {
   const to = [process.env.GMAIL_ID]
 
   const mailOptions = {
-    from: 'MOVIE_INFO_MAILING@gmail.com',
+    from: process.env.GMAIL_ID,
     to,
     subject: '현재상영영화 & 개봉예정영화',
-    html: '<img src="cid:file1"/><br><img src="cid:file2"/>',
+    html: `<img src="cid:now-${now}"/><br><img src="cid:future-${now}"/>`,
     attachments: [
       {
-        filename: 'now.png',
-        path: './now.png',
-        cid: 'file1',
+        filename: `now-${now}.png`,
+        path: `./now-${now}.png`,
+        cid: `now-${now}`,
       },
       {
-        filename: 'future.png',
-        path: './future.png',
-        cid: 'file2',
+        filename: `future-${now}.png`,
+        path: `./future-${now}.png`,
+        cid: `future-${now}`,
       },
     ],
   }
