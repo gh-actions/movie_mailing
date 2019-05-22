@@ -9,7 +9,11 @@ const FUTURE_MOVIES_URL =
 const now = Date.now()
 
 const takeScreenshots = async _ => {
-  const browser = await puppeteer.launch({ args: ['--no-sandbox'], executablePath: 'google-chrome-unstable' })
+  const browser = await puppeteer.launch({
+    args: ['--no-sandbox'],
+    headless: false,
+    executablePath: 'google-chrome-unstable',
+  })
   const page = await browser.newPage()
   await page.goto(CURRENT_MOVIES_URL)
   const clip = { x: 0, y: 240, width: 660, height: 540 }
