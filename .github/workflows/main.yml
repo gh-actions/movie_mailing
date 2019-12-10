@@ -2,7 +2,7 @@ name: Send Movie Info Mail
 
 on:
   schedule:
-    - cron: 37 18 * * *
+    - cron: 40 12 * * *
 
 jobs:
   build:
