@@ -2,7 +2,7 @@ name: Send mail
 
 on:
   schedule:
-  - cron: 47 18 * * *
+  - cron: 54 18 * * *
 
 jobs:
   build:
