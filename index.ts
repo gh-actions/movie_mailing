@@ -14,7 +14,7 @@ const takeScreenshots = async () => {
       height: 10000,
     },
     args: ['--no-sandbox'],
-    executablePath: 'google-chrome-unstable',
+    // executablePath: 'google-chrome-unstable',
   })
   const page = await browser.newPage()
   await page.goto(CURRENT_MOVIES_URL, { waitUntil: 'networkidle2' })
