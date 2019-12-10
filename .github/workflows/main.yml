@@ -1,4 +1,4 @@
-name: Send Movie Info Mail
+name: Send mail
 
 on:
   schedule:
