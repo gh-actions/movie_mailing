@@ -1,0 +1,16 @@
+name: Send Movie Info Mail
+
+on:
+  schedule:
+    - cron: 37 18 * * *
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: ./
+      - name: send mail
+        run: |
+          npm i
+          npm run send
