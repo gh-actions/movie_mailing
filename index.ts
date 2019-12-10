@@ -13,13 +13,13 @@ const takeScreenshots = async () => {
       width: 1024,
       height: 10000,
     },
-    args: ['--no-sandbox'],
+    // args: ['--no-sandbox'],
     // executablePath: 'google-chrome-unstable',
   })
   const page = await browser.newPage()
-  await page.goto(CURRENT_MOVIES_URL, { waitUntil: 'networkidle2' })
+  await page.goto(CURRENT_MOVIES_URL, { timeout: 0, waitUntil: 'networkidle2' })
   await screenshotDOM(page, `now-${now}.png`, '#content')
-  await page.goto(FUTURE_MOVIES_URL, { waitUntil: 'networkidle2' })
+  await page.goto(FUTURE_MOVIES_URL, { timeout: 0, waitUntil: 'networkidle2' })
   await screenshotDOM(page, `future-${now}.png`, '#content')
 
   await browser.close()
