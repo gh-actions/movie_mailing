@@ -2,15 +2,14 @@ name: Send Movie Info Mail
 
 on:
   schedule:
-    - cron: 42 18 * * *
+  - cron: 47 18 * * *
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: ./
-      - name: send mail
-        run: |
-          npm i
-          npm run send
+    - name: send mail
+      run: |
+        npm install
+        npm run send
