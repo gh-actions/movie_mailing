@@ -3,7 +3,6 @@ name: Send mail
 on:
   schedule:
     - cron: 0 11 * * *
-    - cron: 10 4 * * *
 
   push:
     branches:
@@ -14,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: ./
       - name: send mail
         run: |
           npm install
