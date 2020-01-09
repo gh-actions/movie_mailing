@@ -13,7 +13,7 @@ const takeScreenshots = async () => {
       width: 1024,
       height: 10000,
     },
-    // args: ['--no-sandbox'],
+    args: ['--no-sandbox'],
     // executablePath: 'google-chrome-unstable',
   })
   const page = await browser.newPage()
