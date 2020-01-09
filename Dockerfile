@@ -12,4 +12,4 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
 
 COPY . .
 
-CMD ["npm install", "npm run send"]
+CMD npm i
